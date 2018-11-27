@@ -79,7 +79,7 @@ public class Track
     }
 
 
-    // Prints out the tracks to the console
+    // Prints out the track to the console
     public void printTrack()
     {
 

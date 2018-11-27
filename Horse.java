@@ -3,7 +3,7 @@ import java.util.Random;
 public class Horse
 {
 
-    // Creates an object that alows random numbers to be generated
+    // Creates an object that allows random numbers to be generated
     Random random = new Random();
     private int position;
 
