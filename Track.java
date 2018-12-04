@@ -10,7 +10,12 @@ public class Track
     static Scanner input = new Scanner(System.in);   // Creates an object to take in user input
     Horse[] horses;   // Creates an array of horses
 
-    // The constructor; sets the variables and gives values to the array
+    /**
+     * The constructor; sets the variables and gives values to the array
+     * @param numOfHorses is an int that defines the number of horses in the race
+     * @param lengthOfTrack is an int that defines how long the track is, measured in hyphens
+     */
+    // 
     public Track(int numOfHorses, int lengthOfTrack)
     {
 
@@ -21,7 +26,7 @@ public class Track
         // For every horse, a horse is added to the array
         for(int i = 0; i < this.numOfHorses; i++)
         {
-            this.horses[i] = new Horse();
+            this.horses[i] = new Horse(lengthOfTrack - 1);
         }
 
     }
@@ -39,7 +44,9 @@ public class Track
     }
 
 
-    // Takes the user's guess of what horse will win and stores it
+    /**
+     * Takes the user's guess of what horse will win and stores it
+     */
     public void takeGuess()
     {
         System.out.println("There are six horses racing today! Pick which horse you think will win by entering a number from 1 to 6.");
@@ -79,7 +86,9 @@ public class Track
     }
 
 
-    // Prints out the track to the console
+    /**
+     * Prints out the track to the console
+     */
     public void printTrack()
     {
 
@@ -106,7 +115,10 @@ public class Track
     }
 
 
-    // Determines if the race is still ongoing or if a horse has won
+    /**
+     * Determines if the race is still ongoing or if a horse has won
+     * @return returns boolean stating if the race is ongoing
+     */
     public boolean raceOngoing()
     {
 
@@ -122,19 +134,13 @@ public class Track
         }
 
         // If there is at least one winner, the race is no longer ongoing
-        if(numOfWinners > 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-
+        return !(numOfWinners>0);
     }
 
 
-    // Checks if the player has won
+    /**
+     * Checks if the player has won
+     */
     public void checkWin()
     {
 
@@ -146,10 +152,7 @@ public class Track
         {
             if(this.horses[i].getPosition() == this.lengthOfTrack - 1)
             {
-                if(i + 1 == guess)
-                {
-                    win = true;
-                }
+                win = (i + 1 == guess);
             }
         }
 
